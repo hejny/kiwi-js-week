@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import searchFlights from '../../searchFlights';
 import './index.css';
 
 
-export default function Form({results}){
+export default function Form({dataModel}){
     return (
 
 
@@ -11,7 +12,18 @@ export default function Form({results}){
 
             <input type="text" id="to"/>
             <input type="date" id="date"/>
-            <button onClick={()=>{alert(1);}}>Search</button>
+            <button onClick={async ()=>{
+
+
+
+
+                dataModel.loading = true;
+                const results = await searchFlights({});
+                dataModel.results = results;
+                dataModel.loading = false;
+
+
+            }}>Search</button>
 
         </div>
 

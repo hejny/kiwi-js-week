@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {observer} from 'mobx-react';
 import './index.css';
 
 
-export default function Table({results}){
+export default observer(function Table({dataModel}){
     return (
         <div>
 
@@ -21,7 +22,7 @@ export default function Table({results}){
                 <tbody>
 
 
-                {results.map((result)=>(
+                {dataModel.results.map((result)=>(
                     <tr>
                         <td>{result.from}</td>
                         <td>{result.to}</td>
@@ -41,4 +42,4 @@ export default function Table({results}){
 
         </div>
     );
-}
+})
