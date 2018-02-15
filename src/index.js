@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import App from './components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+const result = {
+    from: 'Prague',
+    to: 'Barcelona',
+    date: '2018/03/18',
+    time: '18:30',
+    price: '150€',
+
+};
+const results = [result,result,result,result,result,result];
+
+
+ReactDOM.render(<App results={results} />, document.getElementById('root'));
