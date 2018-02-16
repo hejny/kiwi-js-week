@@ -11,6 +11,10 @@ export default observer(function App({dataModel}){
             <h1>Kiwi search</h1>
 
 
+            <pre style={{height: 200,overflow:'scroll'}}>
+                {JSON.stringify(dataModel,null,4)}
+            </pre>
+
 
             <Form dataModel={dataModel}/>
 

@@ -4,18 +4,15 @@ import App from './components/App';
 import {observable} from 'mobx';
 
 
-const result = {
-    from: 'Prague',
-    to: 'Barcelona',
-    date: '2018/03/18',
-    time: '18:30',
-    price: '150€',
-};
-
-
-
 
 const dataModel = observable({
+
+
+    search: {
+        from: 'prague_cz',
+        to: 'london_gb',
+        date: '08/08/2018',
+    },
 
 
     loading: false,
