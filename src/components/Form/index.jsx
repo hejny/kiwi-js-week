@@ -28,7 +28,8 @@ export default function({dataModel}){
                 dataModel.loading = true;
                 const flights = await searchFlights(dataModel.search,dataModel.flights.pagination);
                 dataModel.flights.pagination.offset = 0;
-                dataModel.flights.data= flights;
+                dataModel.flights.pagination.pageLimit = flights.pageLimit;
+                dataModel.flights.data= flights.data;
                 dataModel.loading = false;
 
 

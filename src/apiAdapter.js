@@ -1,7 +1,7 @@
 import superagent from "superagent";
 import {API_URL} from "./config";
 
-export async function searchFlights(search,pagination) {
+export async function searchFlights(search, pagination) {
 
     const response = await superagent
         .get(`${API_URL}/flights`)
@@ -9,29 +9,32 @@ export async function searchFlights(search,pagination) {
             flyFrom: search.from,
             to: search.to,
             dateFrom: search.date,
-            offset: pagination.onPage*pagination.page,
-            limit:pagination.onPage,
-            sort:pagination.sort,
-            asc: pagination.asc?'1':'0',
+            offset: pagination.onPage * pagination.page,
+            limit: pagination.onPage,
+            sort: pagination.sort,
+            asc: pagination.asc ? '1' : '0',
 
         });
 
     console.log(response);
 
 
-    return (response.body.data.map((flight) => {
+    return ({
+        pageLimit: Math.ceil(response.body._results / pagination.onPage),
+        data: response.body.data.map((flight) => {
 
-        const departureTime = new Date(flight.route.dTimeUTC);
+            const departureTime = new Date(flight.route.dTimeUTC);
 
-        return ({
-            cityFrom: flight.cityFrom,
-            cityTo: flight.cityTo,
-            departureTime: flight.departureTime,
-            price: flight.price,
+            return ({
+                cityFrom: flight.cityFrom,
+                cityTo: flight.cityTo,
+                departureTime: flight.departureTime,
+                price: flight.price,
 
-        });
+            });
 
-    }));
+        })
+    });
 }
 
 /*/
