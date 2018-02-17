@@ -9,10 +9,11 @@ export async function searchFlights(search, pagination) {
             flyFrom: search.from,
             to: search.to,
             dateFrom: search.date,
+            dateTo: search.date,
             offset: pagination.onPage * pagination.page,
             limit: pagination.onPage,
-            sort: pagination.sort,
-            asc: pagination.asc ? '1' : '0',
+            sort: pagination.sort.by,
+            asc: pagination.sort.asc ? '1' : '0',
 
         });
 
@@ -23,12 +24,12 @@ export async function searchFlights(search, pagination) {
         pageLimit: Math.ceil(response.body._results / pagination.onPage),
         data: response.body.data.map((flight) => {
 
-            const departureTime = new Date(flight.route.dTimeUTC);
+            const departureTime = new Date(flight.dTimeUTC*1000);
 
             return ({
                 cityFrom: flight.cityFrom,
                 cityTo: flight.cityTo,
-                departureTime: flight.departureTime,
+                departureTime,
                 price: flight.price,
 
             });

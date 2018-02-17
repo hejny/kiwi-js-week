@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import moment from 'moment';//.format('YYYY-MM-DD hh:mm')
 import {observer} from 'mobx-react';
 import './index.css';
 
@@ -26,7 +26,7 @@ export default observer(function({dataModel}){
                     <tr>
                         <td>{flight.cityFrom}</td>
                         <td>{flight.cityTo}</td>
-                        <td>{moment(flight.departureTime).format('YYYY-MM-DD')}</td>
+                        <td>{moment(flight.departureTime).format('LLL')}</td>
                         <td>{flight.price} &euro;</td>
                     </tr>
                 ))}
