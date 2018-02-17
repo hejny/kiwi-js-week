@@ -1,6 +1,7 @@
 import React from 'react';
 import Autocomplete from "./autocompleter";//todo "react-async-autocomplete";
 import { searchLocations } from '../../apiAdapter';
+import './index.css';
 
 
 
@@ -40,7 +41,7 @@ export default class InputLocation extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={'autocompleter'}>
                 <Autocomplete
                     value={this.props.defaultValue}
                     ref="autocomplete"
@@ -49,7 +50,7 @@ export default class InputLocation extends React.Component {
                         //console.log(item);
                         //todo highlighted
                         return(
-                            <span>
+                            <span className={item.highlighted?'hovered':''}>
                                 {item.item.name}
                             </span>
                         );
