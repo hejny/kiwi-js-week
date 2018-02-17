@@ -39,15 +39,6 @@ export default observer(function({dataModel}){
             </table>
 
 
-            page: {dataModel.flights.pagination.page} / {dataModel.flights.pagination.pageLimit}
-
-            {/*<p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>*/}
-
-            <button onClick={()=>{dataModel.flights.pagination.page++;dataModel.searchFlights()}}>Next</button>
-
-
-
-
         </div>
     );
 })

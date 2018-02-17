@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from '../Form';
 import Table from '../Flights';
+import FlightsPagination from '../FlightsPagination';
 import {observer} from 'mobx-react';
 import './index.css';
 
@@ -30,7 +31,9 @@ export default observer(function({dataModel}){
 
 
             <div>
+                <FlightsPagination dataModel={dataModel}/>
                 <Table dataModel={dataModel}/>
+                <FlightsPagination dataModel={dataModel}/>
             </div>
 
 
