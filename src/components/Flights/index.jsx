@@ -13,11 +13,37 @@ export default observer(function({dataModel}){
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>to</th>
-                    <th>to</th>
-                    <th>date and time</th>
-                    <th>price [EUR]</th>
-                    <th>actions</th>
+                    <th>From</th>
+                    <th>To</th>
+                    {[
+                        {
+                            id: 'date',
+                            label: 'Departure'
+                        },
+                        {
+                            id: 'price',
+                            label: 'Price'
+                        }
+
+                    ].map((column)=>(
+
+                        <th key={column.id} className={`sortable ${dataModel.search.pagination.sort.by===column.id?'sorted':''}`} onClick={()=>{
+
+                            if(dataModel.search.pagination.sort.by!==column.id){
+                                dataModel.search.pagination.sort.asc=true;
+                                dataModel.search.pagination.sort.by=column.id;
+                            }else{
+                                dataModel.search.pagination.sort.asc=!dataModel.search.pagination.sort.asc;
+                            }
+                            dataModel.search.pagination.page=0;
+                            dataModel.searchFlights();
+
+                        }}>
+                            {column.label}{dataModel.search.pagination.sort.by===column.id?(dataModel.search.pagination.sort.asc?'▼':'▲'):undefined}
+                        </th>
+
+                    ))}
+                    <th>Actions</th>
                 </tr>
 
                 </thead>

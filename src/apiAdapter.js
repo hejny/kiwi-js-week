@@ -8,8 +8,8 @@ export async function searchFlights(search) {
         .query({
             flyFrom: search.from,
             to: search.to,
-            dateFrom: search.date,
-            dateTo: search.date,
+            dateFrom: search.dateFrom,
+            dateTo: search.dateTo,
             offset: search.pagination.page * search.pagination.itemsPerPage,
             limit: search.pagination.itemsPerPage,
             sort: search.pagination.sort.by,

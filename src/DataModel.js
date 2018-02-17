@@ -10,7 +10,8 @@ export default class{
     @observable search = {
         from: 'prague_cz',
         to: 'london_gb',
-        date: new Date(),
+        dateFrom: new Date(),
+        dateTo: new Date(),
 
         pagination: {
             page:0,
