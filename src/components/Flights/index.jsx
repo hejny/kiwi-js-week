@@ -16,6 +16,7 @@ export default observer(function({dataModel}){
                     <th>to</th>
                     <th>date and time</th>
                     <th>price [EUR]</th>
+                    <th>actions</th>
                 </tr>
 
                 </thead>
@@ -28,6 +29,7 @@ export default observer(function({dataModel}){
                         <td>{flight.cityTo}</td>
                         <td>{moment(flight.departureTime).format('LLL')}</td>
                         <td>{flight.price} &euro;</td>
+                        <td><a href={flight.url} target="_blank">Buy</a></td>
                     </tr>
                 ))}
 

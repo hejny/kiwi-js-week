@@ -27,6 +27,7 @@ export async function searchFlights(search, pagination) {
             const departureTime = new Date(flight.dTimeUTC*1000);
 
             return ({
+                url: `https://www.kiwi.com/en/booking?currency=EUR&booking_token=${encodeURI(flight.booking_token)}`,
                 cityFrom: flight.cityFrom,
                 cityTo: flight.cityTo,
                 departureTime,
