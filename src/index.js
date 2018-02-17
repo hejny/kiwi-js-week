@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import {observable} from 'mobx';
+import {observable,computed} from 'mobx';
 
 
 
@@ -37,14 +37,14 @@ const dataModel = observable({
 
 
 
-class DataModel {
+/*class DataModel {
     @observable price = 0;
     @observable amount = 1;
 
     @computed get total() {
         return this.price * this.amount;
     }
-}
+}*/
 
 
 
