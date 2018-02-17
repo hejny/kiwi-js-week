@@ -11,12 +11,26 @@ const dataModel = observable({
     search: {
         from: 'prague_cz',
         to: 'london_gb',
-        date: '08/08/2018',
+        date: new Date(),
     },
 
 
     loading: false,
-    results: []
+
+
+
+    flights: {
+        pagination: {
+            page:0,
+            pageLimit:10,
+            onPage:5,
+            sort:{
+                by: 'price',
+                asc: true
+            }
+        },
+        data:[]
+    }
 
 
 });

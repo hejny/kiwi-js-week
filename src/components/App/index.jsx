@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Form from '../Form';
-import Table from '../Table';
+import Table from '../Flights';
 import {observer} from 'mobx-react';
 import './index.css';
 
 
-export default observer(function App({dataModel}){
+export default observer(function({dataModel}){
     return (
         <div>
             <h1>Kiwi search</h1>
@@ -27,7 +27,7 @@ export default observer(function App({dataModel}){
                 ):(
                     <div>
                         <Table dataModel={dataModel}/>
-                        <p>{ dataModel.results.length===0?`No results`:`Total results: ${dataModel.results.length}`}</p>
+                        <p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>
                     </div>
                 )
 

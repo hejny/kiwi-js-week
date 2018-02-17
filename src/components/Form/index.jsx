@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import { searchFlights } from '../../apiAdapter';
 import InputLocation from '../InputLocation';
 import './index.css';
 
 
-export default function Form({dataModel}){
+export default function({dataModel}){
     return (
 
 
@@ -18,15 +19,16 @@ export default function Form({dataModel}){
 
 
 
-            <input type="date" id="date" defaultValue={dataModel.search.date} onChange={(event)=>{dataModel.search.date=event.target.value}}/>
+            <input type="date" id="date" defaultValue={moment(dataModel.search.date).format('YYYY-MM-DD')} onChange={(event)=>dataModel.search.date=new Date(event.target.value)} />
 
 
 
 
             <button onClick={async ()=>{
                 dataModel.loading = true;
-                const results = await searchFlights(dataModel.search);
-                dataModel.results = results;
+                const flights = await searchFlights(dataModel.search,dataModel.flights.pagination);
+                dataModel.flights.pagination.offset = 0;
+                dataModel.flights.data= flights;
                 dataModel.loading = false;
 
 
