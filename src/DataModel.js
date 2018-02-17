@@ -27,6 +27,7 @@ export default class{
     };
 
     @observable flights = {
+        searched: false,
         loading: false,
         total: 0,
         data:[]
@@ -39,6 +40,7 @@ export default class{
 
 
     async searchFlights(){
+        this.flights.searched = true;
         this.flights.loading = true;
         const flights = await searchFlights(this.search);
         this.flights.total = flights.total;
