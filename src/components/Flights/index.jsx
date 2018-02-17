@@ -41,6 +41,8 @@ export default observer(function({dataModel}){
 
             page: {dataModel.flights.pagination.page} / {dataModel.flights.pagination.pageLimit}
 
+            {/*<p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>*/}
+
             <button onClick={()=>{}}>Next</button>
 
 

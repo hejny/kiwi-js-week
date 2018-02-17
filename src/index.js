@@ -37,5 +37,16 @@ const dataModel = observable({
 
 
 
+class DataModel {
+    @observable price = 0;
+    @observable amount = 1;
+
+    @computed get total() {
+        return this.price * this.amount;
+    }
+}
+
+
+
 
 ReactDOM.render(<App dataModel={dataModel} />, document.getElementById('root'));

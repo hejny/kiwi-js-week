@@ -27,7 +27,6 @@ export default observer(function({dataModel}){
                 ):(
                     <div>
                         <Table dataModel={dataModel}/>
-                        <p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>
                     </div>
                 )
 
