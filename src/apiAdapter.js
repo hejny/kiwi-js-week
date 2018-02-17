@@ -1,5 +1,5 @@
 import superagent from "superagent";
-import {API_URL} from "./config";
+import {API_URL,BOOKING_URL,BOOKING_AFFILID} from "./config";
 
 export async function searchFlights(search, pagination) {
 
@@ -27,7 +27,7 @@ export async function searchFlights(search, pagination) {
             const departureTime = new Date(flight.dTimeUTC*1000);
 
             return ({
-                url: `https://www.kiwi.com/en/booking?currency=EUR&booking_token=${encodeURI(flight.booking_token)}`,
+                url: `${BOOKING_URL}?currency=EUR&affilid=${encodeURI(BOOKING_AFFILID)}&booking_token=${encodeURI(flight.booking_token)}`,
                 cityFrom: flight.cityFrom,
                 cityTo: flight.cityTo,
                 departureTime,
