@@ -8,11 +8,11 @@ export default observer(function({dataModel}){
         <div>
 
 
-            page: {dataModel.flights.pagination.page} / {dataModel.flights.pagination.pageLimit}
+            page: {dataModel.search.pagination.page} / {dataModel.totalPages}
 
             {/*<p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>*/}
 
-            <button onClick={()=>{dataModel.flights.pagination.page++;dataModel.searchFlights()}}>Next</button>
+            <button onClick={()=>{dataModel.search.pagination.page++;dataModel.searchFlights()}}>Next</button>
 
         </div>
     );

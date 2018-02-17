@@ -31,6 +31,9 @@ export default observer(function({dataModel}){
 
 
             <div>
+
+                <p>{ dataModel.flights.total===0?`No results`:`Total results: ${dataModel.flights.total}`}</p>
+
                 <FlightsPagination dataModel={dataModel}/>
                 <Table dataModel={dataModel}/>
                 <FlightsPagination dataModel={dataModel}/>

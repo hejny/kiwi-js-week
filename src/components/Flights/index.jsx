@@ -12,7 +12,8 @@ export default observer(function({dataModel}){
 
                 <thead>
                 <tr>
-                    <th>from</th>
+                    <th>#</th>
+                    <th>to</th>
                     <th>to</th>
                     <th>date and time</th>
                     <th>price [EUR]</th>
@@ -23,8 +24,9 @@ export default observer(function({dataModel}){
                 <tbody className={dataModel.flights.loading?'loading':''}>
 
 
-                {dataModel.flights.data.map((flight)=>(
-                    <tr>
+                {dataModel.flights.data.map((flight,iterator)=>(
+                    <tr key={iterator}>
+                        <td>{iterator+dataModel.search.pagination.itemsPerPage*dataModel.search.pagination.page+1}</td>
                         <td>{flight.cityFrom}</td>
                         <td>{flight.cityTo}</td>
                         <td>{moment(flight.departureTime).format('LLL')}</td>
