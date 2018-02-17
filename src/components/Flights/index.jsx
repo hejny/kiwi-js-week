@@ -12,7 +12,7 @@ export default observer(function({dataModel}){
 
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th></th>
                     <th>From</th>
                     <th>To</th>
                     {[

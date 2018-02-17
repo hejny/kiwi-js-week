@@ -21,9 +21,9 @@ export default observer(function({dataModel}){
             }
 
 
-            <pre style={{height: 200,overflow:'scroll'}}>
+            {/*<pre style={{height: 200,overflow:'scroll'}}>
                 {JSON.stringify(dataModel,null,4)}
-            </pre>
+            </pre>*/}
 
 
             <Form dataModel={dataModel}/>

@@ -1,0 +1,19 @@
+
+ul.pagination{
+    margin: 0;
+    padding: 0;
+}
+
+ul.pagination li{
+    cursor: pointer;
+
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+}
+
+ul.pagination li.current{
+
+    font-weight: bold;
+}

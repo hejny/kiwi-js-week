@@ -4,15 +4,63 @@ import './index.css';
 
 
 export default observer(function({dataModel}){
+
+    const PAGINATION_BOUNDS = 4;
+    const pageList = [];
+
+    let from = Math.max(dataModel.search.pagination.page-PAGINATION_BOUNDS,0);
+    const to = Math.min(from+2*PAGINATION_BOUNDS,dataModel.totalPages);
+    from = Math.max(to-2*PAGINATION_BOUNDS,0);
+
+
+    for(let page=from;page<=to;page++){
+        pageList.push(page);
+    }
+
     return (
         <div>
 
+            <ul className={'pagination'}>
+                <li
+                    onClick={()=>{
+                        dataModel.search.pagination.page--;
+                        dataModel.searchFlights();
+                    }}
+                >
+                    Previous
+                </li>
 
-            page: {dataModel.search.pagination.page} / {dataModel.totalPages}
 
-            {/*<p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>*/}
+                {pageList.map((page)=>(
+                    <li
+                        key={page} className={`${dataModel.search.pagination.page===page?'current':''}`}
+                        onClick={()=>{
+                            dataModel.search.pagination.page=page;
+                            dataModel.searchFlights();
+                        }}
+                    >
 
-            <button onClick={()=>{dataModel.search.pagination.page++;dataModel.searchFlights()}}>Next</button>
+
+                        {page+1}
+
+                    </li>
+
+
+
+
+
+                ))}
+
+
+                <li
+                    onClick={()=>{
+                        dataModel.search.pagination.page++;
+                        dataModel.searchFlights();
+                    }}
+                >
+                    Next
+                </li>
+            </ul>
 
         </div>
     );
