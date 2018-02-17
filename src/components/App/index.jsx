@@ -11,6 +11,15 @@ export default observer(function({dataModel}){
             <h1>Kiwi search</h1>
 
 
+            {
+                dataModel.loading?(
+                    <div>
+                        nice rolling loader
+                    </div>
+                ):undefined
+            }
+
+
             <pre style={{height: 200,overflow:'scroll'}}>
                 {JSON.stringify(dataModel,null,4)}
             </pre>
@@ -19,20 +28,14 @@ export default observer(function({dataModel}){
             <Form dataModel={dataModel}/>
 
 
-            {
-                dataModel.loading?(
-                    <div>
-                        nice rolling loader
-                    </div>
-                ):(
-                    <div>
-                        <Table dataModel={dataModel}/>
-                    </div>
-                )
+
+            <div>
+                <Table dataModel={dataModel}/>
+            </div>
 
 
 
-            }
+
 
 
 

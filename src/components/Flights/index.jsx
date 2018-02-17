@@ -43,7 +43,7 @@ export default observer(function({dataModel}){
 
             {/*<p>{ dataModel.flights.length===0?`No results`:`Total results: ${dataModel.flights.length}`}</p>*/}
 
-            <button onClick={()=>{}}>Next</button>
+            <button onClick={()=>{dataModel.flights.pagination.page++;dataModel.searchFlights()}}>Next</button>
 
 
 
