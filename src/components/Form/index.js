@@ -18,9 +18,8 @@ export default function({dataModel}){
 
 
 
-            <input type="date" defaultValue={moment(dataModel.search.dateFrom).format('YYYY-MM-DD')} onChange={(event)=>dataModel.search.dateFrom=new Date(event.target.value)} />
+            <input type="date" defaultValue={moment(dataModel.search.date).format('YYYY-MM-DD')} onChange={(event)=>dataModel.search.date=new Date(event.target.value)} />
 
-            <input type="date" defaultValue={moment(dataModel.search.dateTo).format('YYYY-MM-DD')} onChange={(event)=>dataModel.search.dateTo=new Date(event.target.value)} />
 
 
 

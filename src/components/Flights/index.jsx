@@ -52,7 +52,7 @@ export default observer(function({dataModel}){
 
                 {dataModel.flights.data.map((flight,iterator)=>(
                     <tr key={iterator}>
-                        <td>{iterator+dataModel.search.pagination.itemsPerPage*dataModel.search.pagination.page+1}</td>
+                        <td>{iterator+dataModel.flights.search.pagination.itemsPerPage*dataModel.flights.search.pagination.page+1}</td>
                         <td>{flight.cityFrom}</td>
                         <td>{flight.cityTo}</td>
                         <td>{moment(flight.departureTime).format('LLL')}</td>

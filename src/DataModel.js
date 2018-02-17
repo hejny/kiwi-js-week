@@ -12,8 +12,7 @@ export default class{
     @observable search = {
         from: 'prague_cz',
         to: 'barcelona_es',
-        dateFrom: moment().toDate(),
-        dateTo: moment().add(2,'months').toDate(),
+        date: moment('2018/03/16').toDate(),
 
         pagination: {
             page:0,
@@ -45,6 +44,7 @@ export default class{
         this.flights.searched = true;
         this.flights.loading = true;
         const flights = await searchFlights(this.search);
+        this.flights.search = JSON.parse(JSON.stringify(this.search));//todo better
         this.flights.total = flights.total;
         this.flights.data= flights.data;
         this.flights.loading = false;
