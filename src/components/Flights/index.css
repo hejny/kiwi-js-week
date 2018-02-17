@@ -7,6 +7,10 @@ tbody.loading {
     cursor: pointer;
 }
 
+.sortable:hover {
+    background: #e4eed4;
+}
+
 .sorted {
 
 }
@@ -29,7 +33,7 @@ tbody tr:nth-child(even) {
     background: #ffffff;
 }
 
-tbody tr:hover {
+tbody tr:hover{
     background: #e4eed4;
 }
 

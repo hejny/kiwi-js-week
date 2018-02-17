@@ -36,12 +36,12 @@ export default class {
 
 
     async searchFlights() {
-        this.flights.searched = true;
         this.flights.loading = true;
         const flights = await searchFlights(this.search);
         this.flights.search = JSON.parse(JSON.stringify(this.search));//todo better
         this.flights.total = flights.total;
         this.flights.data = flights.data;
         this.flights.loading = false;
+        this.flights.searched = true;
     }
 }
