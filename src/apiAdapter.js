@@ -1,4 +1,5 @@
 import superagent from "superagent";
+import moment from 'moment';
 import {API_URL,BOOKING_URL,BOOKING_AFFILID} from "./config";
 
 export async function searchFlights(search) {
@@ -8,8 +9,8 @@ export async function searchFlights(search) {
         .query({
             flyFrom: search.from,
             to: search.to,
-            dateFrom: search.dateFrom,
-            dateTo: search.dateTo,
+            dateFrom: moment(search.dateFrom).format('DD/MM/YYYY'),
+            dateTo: moment(search.dateTo).format('DD/MM/YYYY'),
             offset: search.pagination.page * search.pagination.itemsPerPage,
             limit: search.pagination.itemsPerPage,
             sort: search.pagination.sort.by,
