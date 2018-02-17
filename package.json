@@ -14,14 +14,6 @@
     "react-scripts": "1.1.1",
     "superagent": "^3.8.2"
   },
-  "babel": {
-    "plugins": [
-      "transform-decorators-legacy"
-    ],
-    "presets": [
-      "react-app"
-    ]
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
