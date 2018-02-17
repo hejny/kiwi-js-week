@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';//.format('YYYY-MM-DD hh:mm')
 import {observer} from 'mobx-react';
 import './index.css';

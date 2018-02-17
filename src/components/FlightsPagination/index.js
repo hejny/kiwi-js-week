@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {observer} from 'mobx-react';
 import './index.css';
 
@@ -21,15 +21,17 @@ export default observer(function({dataModel}){
         <div>
 
             <ul className={'pagination'}>
-                <li
-                    onClick={()=>{
-                        dataModel.search.pagination.page--;
-                        dataModel.searchFlights();
-                    }}
-                >
-                    Previous
-                </li>
 
+                {dataModel.search.pagination.page > 0 ?
+                    <li
+                        onClick={() => {
+                            dataModel.search.pagination.page--;
+                            dataModel.searchFlights();
+                        }}
+                    >
+                        Previous
+                    </li>
+                :undefined}
 
                 {pageList.map((page)=>(
                     <li
@@ -52,14 +54,15 @@ export default observer(function({dataModel}){
                 ))}
 
 
-                <li
-                    onClick={()=>{
+                {dataModel.search.pagination.page < dataModel.totalPages ? <li
+                    onClick={() => {
                         dataModel.search.pagination.page++;
                         dataModel.searchFlights();
                     }}
                 >
                     Next
                 </li>
+                :undefined}
             </ul>
 
         </div>

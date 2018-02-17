@@ -1,4 +1,7 @@
+tbody.loading{
+    opacity: 0.7;
 
+}
 
 .sortable{
     cursor: pointer;

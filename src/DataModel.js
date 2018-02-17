@@ -1,5 +1,7 @@
 import {observable,computed} from 'mobx';
+import moment from 'moment';
 import { searchFlights } from './apiAdapter';
+
 
 
 
@@ -9,15 +11,15 @@ export default class{
 
     @observable search = {
         from: 'prague_cz',
-        to: 'london_gb',
-        dateFrom: new Date(),
-        dateTo: new Date(),
+        to: 'barcelona_es',
+        dateFrom: moment().toDate(),
+        dateTo: moment().add(2,'months').toDate(),
 
         pagination: {
             page:0,
             itemsPerPage:5,
             sort:{
-                by: 'price',
+                by: 'date',
                 asc: true
             }
         },
@@ -34,7 +36,7 @@ export default class{
     };
 
     @computed get totalPages() {
-        return Math.ceil(this.flights.total/this.search.pagination.itemsPerPage)
+        return Math.ceil(this.flights.total/this.search.pagination.itemsPerPage)-1;
     }
 
 

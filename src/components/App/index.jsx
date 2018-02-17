@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import Form from '../Form';
+import React from 'react';
+import Form from '../Form/index';
 import Table from '../Flights';
+import Loader from '../Loader';
 import FlightsPagination from '../FlightsPagination';
 import {observer} from 'mobx-react';
 import './index.css';
@@ -9,17 +10,18 @@ import './index.css';
 export default observer(function ({dataModel}) {
     return (
         <div>
-            <h1>Kiwi search</h1>
+            <nav className={'top'}>
+                <h1>Kiwi search</h1>
+            </nav>
 
 
-            {
-                dataModel.flights.loading ? (
-                    <div>
-                        nice rolling loader
-                    </div>
-                ) : undefined
-            }
-
+            <nav className={'loading'}>
+                {
+                    dataModel.flights.loading ? (
+                        <Loader/>
+                    ) : undefined
+                }
+            </nav>
 
             {/*<pre style={{height: 200,overflow:'scroll'}}>
                 {JSON.stringify(dataModel,null,4)}

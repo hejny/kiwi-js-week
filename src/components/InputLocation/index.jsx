@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Autocomplete from "./autocompleter";//todo "react-async-autocomplete";
 import { searchLocations } from '../../apiAdapter';
 
@@ -42,6 +42,7 @@ export default class InputLocation extends React.Component {
         return (
             <div>
                 <Autocomplete
+                    value={this.props.defaultValue}
                     ref="autocomplete"
                     renderItem={(item)=>{
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import InputLocation from '../InputLocation';
 import './index.css';
@@ -13,8 +13,8 @@ export default function({dataModel}){
             <input type="text" id="to" defaultValue={dataModel.search.to} onChange={(event)=>{dataModel.search.to=event.target.value}}/>*/}
 
 
-            <InputLocation onChange={(locationId)=>{dataModel.search.from=locationId}} />
-            <InputLocation onChange={(locationId)=>{dataModel.search.to=locationId}} />
+            <InputLocation defaultValue={dataModel.search.from} onChange={(locationId)=>{dataModel.search.from=locationId}} />
+            <InputLocation defaultValue={dataModel.search.to} onChange={(locationId)=>{dataModel.search.to=locationId}} />
 
 
 
