@@ -23,7 +23,7 @@ export default function({dataModel}){
 
 
 
-            <button onClick={()=>dataModel.searchFlights()}>Search</button>
+            <button onClick={()=>{dataModel.flights.pagination.offset=0;dataModel.searchFlights()}}>Search</button>
 
         </div>
 

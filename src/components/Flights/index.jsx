@@ -20,7 +20,7 @@ export default observer(function({dataModel}){
                 </tr>
 
                 </thead>
-                <tbody>
+                <tbody className={dataModel.flights.loading?'loading':''}>
 
 
                 {dataModel.flights.data.map((flight)=>(

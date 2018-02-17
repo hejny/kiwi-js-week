@@ -13,8 +13,8 @@ export default class{
         date: new Date(),
     };
 
-    @observable loading = false;
     @observable flights = {
+        loading: false,
         pagination: {
             page:0,//todo better names
             pageLimit:10,
@@ -29,12 +29,11 @@ export default class{
 
 
     async searchFlights(){
-        this.loading = true;
+        this.flights.loading = true;
         const flights = await searchFlights(this.search,this.flights.pagination);
-        this.flights.pagination.offset = 0;
         this.flights.pagination.pageLimit = flights.pageLimit;
         this.flights.data= flights.data;
-        this.loading = false;
+        this.flights.loading = false;
     }
 
 

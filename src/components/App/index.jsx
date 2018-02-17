@@ -12,7 +12,7 @@ export default observer(function({dataModel}){
 
 
             {
-                dataModel.loading?(
+                dataModel.flights.loading?(
                     <div>
                         nice rolling loader
                     </div>
