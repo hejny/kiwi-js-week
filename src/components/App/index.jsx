@@ -9,7 +9,7 @@ import './index.css';
 
 export default observer(function ({dataModel}) {
     return (
-        <div>
+        <div className={'app'}>
             <nav className={'top'}>
                 <h1>Kiwi search</h1>
             </nav>
@@ -31,14 +31,16 @@ export default observer(function ({dataModel}) {
             <Form dataModel={dataModel}/>
 
             {dataModel.flights.searched ?
-                <div>
+                <div className={'results'}>
                     {dataModel.flights.total === 0 ? (
-                        <div>
+                        <div className={'total'}>
                             No results
                         </div>
                     ) : (
                         <div>
-                            {`Total results: ${dataModel.flights.total}`}
+                            <div className={'total'}>
+                                {`Total results: ${dataModel.flights.total}`}
+                            </div>
 
                             <FlightsPagination dataModel={dataModel}/>
                             <Table dataModel={dataModel}/>

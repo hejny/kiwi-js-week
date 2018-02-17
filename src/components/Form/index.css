@@ -1,0 +1,17 @@
+
+.form{
+    background-color: #eeeeee;
+    padding: 10px;
+}
+
+.form label span{
+    font-weight: bold;
+}
+
+.form label input{
+    display: block;
+}
+
+.form button{
+    margin-top: 10px;
+}

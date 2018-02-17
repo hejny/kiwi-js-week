@@ -1,11 +1,19 @@
 
 ul.pagination{
+    margin: 30px;
+
+}
+
+ul.pagination{
     margin: 0;
     padding: 0;
 }
 
 ul.pagination li{
     cursor: pointer;
+
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
 
     display: inline-block;
     list-style: none;
@@ -16,4 +24,8 @@ ul.pagination li{
 ul.pagination li.current{
 
     font-weight: bold;
+}
+
+ul.pagination li:hover{
+    background: #e4eed4;
 }
