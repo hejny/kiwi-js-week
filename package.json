@@ -1,6 +1,7 @@
 {
   "name": "kiwi-js-week",
   "version": "0.1.0",
+  "homepage": "http://hejny.github.io/kiwi-js-week",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -52,10 +53,12 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "babel-plugin-transform-decorators-legacy": "^1.3.4"
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "gh-pages": "^1.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
