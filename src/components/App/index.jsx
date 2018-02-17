@@ -23,11 +23,6 @@ export default observer(function ({dataModel}) {
                 }
             </nav>
 
-            {/*<pre style={{height: 200,overflow:'scroll'}}>
-                {JSON.stringify(dataModel,null,4)}
-            </pre>*/}
-
-
             <Form dataModel={dataModel}/>
 
             {dataModel.flights.searched ?

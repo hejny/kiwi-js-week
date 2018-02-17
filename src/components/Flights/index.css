@@ -1,27 +1,25 @@
-tbody.loading{
+tbody.loading {
     opacity: 0.3;
 
 }
 
-.sortable{
+.sortable {
     cursor: pointer;
 }
 
-.sorted{
-
+.sorted {
 
 }
 
-td,th{
+td, th {
     padding: 10px;
     margin: 0;
 
 }
 
-thead{
+thead {
     background-color: #eeeeee;
 }
-
 
 tbody tr:nth-child(odd) {
     background: #eeeeee;
@@ -31,11 +29,11 @@ tbody tr:nth-child(even) {
     background: #ffffff;
 }
 
-tbody tr:hover{
+tbody tr:hover {
     background: #e4eed4;
 }
 
-.empty{
+.empty {
     background: #ffffff;
 
 }

@@ -1,15 +1,15 @@
 
-ul.pagination{
+ul.pagination {
     margin: 30px;
 
 }
 
-ul.pagination{
+ul.pagination {
     margin: 0;
     padding: 0;
 }
 
-ul.pagination li{
+ul.pagination li {
     cursor: pointer;
 
     background-color: #eeeeee;
@@ -21,11 +21,11 @@ ul.pagination li{
     padding: 5px;
 }
 
-ul.pagination li.current{
+ul.pagination li.current {
 
     font-weight: bold;
 }
 
-ul.pagination li:hover{
+ul.pagination li:hover {
     background: #e4eed4;
 }

@@ -1,11 +1,8 @@
 import React from 'react';
 import Autocomplete from "./autocompleter";//todo "react-async-autocomplete";
-import { searchLocations } from '../../apiAdapter';
+import {searchLocations} from '../../apiAdapter';
 import './index.css';
 
-
-
-//todo initial value
 export default class InputLocation extends React.Component {
 
     constructor() {
@@ -20,9 +17,7 @@ export default class InputLocation extends React.Component {
     // invoked when the user types something. A delay of 200ms is
     // already provided to avoid DDoS'ing your own servers
     async onChange(query) {
-
         const locations = await searchLocations(query);
-        console.log(locations);
         this.refs.autocomplete.setItems(locations);
     }
 
@@ -45,12 +40,12 @@ export default class InputLocation extends React.Component {
                 <Autocomplete
                     value={this.props.defaultValue}
                     ref="autocomplete"
-                    renderItem={(item)=>{
+                    renderItem={(item) => {
 
                         //console.log(item);
                         //todo highlighted
-                        return(
-                            <span className={item.highlighted?'hovered':''}>
+                        return (
+                            <span className={item.highlighted ? 'hovered' : ''}>
                                 {item.item.name}
                             </span>
                         );

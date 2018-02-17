@@ -1,19 +1,19 @@
 import React from 'react';
 import {observer} from 'mobx-react';
+import {PAGINATION_BOUNDS} from '../../config';
 import './index.css';
 
 
-export default observer(function({dataModel}){
+export default observer(function ({dataModel}) {
 
-    const PAGINATION_BOUNDS = 4;
     const pageList = [];
 
-    let from = Math.max(dataModel.search.pagination.page-PAGINATION_BOUNDS,0);
-    const to = Math.min(from+2*PAGINATION_BOUNDS,dataModel.totalPages);
-    from = Math.max(to-2*PAGINATION_BOUNDS,0);
+    let from = Math.max(dataModel.search.pagination.page - PAGINATION_BOUNDS, 0);
+    const to = Math.min(from + 2 * PAGINATION_BOUNDS, dataModel.totalPages);
+    from = Math.max(to - 2 * PAGINATION_BOUNDS, 0);
 
 
-    for(let page=from;page<=to;page++){
+    for (let page = from; page <= to; page++) {
         pageList.push(page);
     }
 
@@ -31,38 +31,35 @@ export default observer(function({dataModel}){
                     >
                         Previous
                     </li>
-                :undefined}
+                    : undefined}
 
-                {pageList.map((page)=>(
+                {pageList.map((page) => (
                     <li
-                        key={page} className={`${dataModel.search.pagination.page===page?'current':''}`}
-                        onClick={()=>{
-                            dataModel.search.pagination.page=page;
+                        key={page} className={`${dataModel.search.pagination.page === page ? 'current' : ''}`}
+                        onClick={() => {
+                            dataModel.search.pagination.page = page;
                             dataModel.searchFlights();
                         }}
                     >
 
 
-                        {page+1}
+                        {page + 1}
 
                     </li>
-
-
-
 
 
                 ))}
 
 
                 {dataModel.search.pagination.page < dataModel.totalPages ? <li
-                    onClick={() => {
-                        dataModel.search.pagination.page++;
-                        dataModel.searchFlights();
-                    }}
-                >
-                    Next
-                </li>
-                :undefined}
+                        onClick={() => {
+                            dataModel.search.pagination.page++;
+                            dataModel.searchFlights();
+                        }}
+                    >
+                        Next
+                    </li>
+                    : undefined}
             </ul>
 
         </div>

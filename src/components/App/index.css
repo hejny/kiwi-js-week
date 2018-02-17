@@ -1,23 +1,23 @@
-.app{
+.app {
     font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
 }
 
-nav.top{
+nav.top {
 
 }
 
-nav.loading{
+nav.loading {
     position: fixed;
     top: 20px;
     right: 30px;
 }
 
-.results{
+.results {
     margin-top: 20px;
     margin-left: 10px;
 }
 
-.results .total{
+.results .total {
     margin-bottom: 20px;
     font-size: 1.2em;
 }

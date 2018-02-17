@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 import './index.css';
 
 
-export default observer(function({dataModel}){
+export default observer(function ({dataModel}) {
     return (
         <div>
 
@@ -25,21 +25,23 @@ export default observer(function({dataModel}){
                             label: 'Price'
                         }
 
-                    ].map((column)=>(
+                    ].map((column) => (
 
-                        <th key={column.id} className={`sortable ${dataModel.search.pagination.sort.by===column.id?'sorted':''}`} onClick={()=>{
+                        <th key={column.id}
+                            className={`sortable ${dataModel.search.pagination.sort.by === column.id ? 'sorted' : ''}`}
+                            onClick={() => {
 
-                            if(dataModel.search.pagination.sort.by!==column.id){
-                                dataModel.search.pagination.sort.asc=true;
-                                dataModel.search.pagination.sort.by=column.id;
-                            }else{
-                                dataModel.search.pagination.sort.asc=!dataModel.search.pagination.sort.asc;
-                            }
-                            dataModel.search.pagination.page=0;
-                            dataModel.searchFlights();
+                                if (dataModel.search.pagination.sort.by !== column.id) {
+                                    dataModel.search.pagination.sort.asc = true;
+                                    dataModel.search.pagination.sort.by = column.id;
+                                } else {
+                                    dataModel.search.pagination.sort.asc = !dataModel.search.pagination.sort.asc;
+                                }
+                                dataModel.search.pagination.page = 0;
+                                dataModel.searchFlights();
 
-                        }}>
-                            {column.label}{dataModel.search.pagination.sort.by===column.id?(dataModel.search.pagination.sort.asc?'▼':'▲'):undefined}
+                            }}>
+                            {column.label}{dataModel.search.pagination.sort.by === column.id ? (dataModel.search.pagination.sort.asc ? '▼' : '▲') : undefined}
                         </th>
 
                     ))}
@@ -47,12 +49,12 @@ export default observer(function({dataModel}){
                 </tr>
 
                 </thead>
-                <tbody className={dataModel.flights.loading?'loading':''}>
+                <tbody className={dataModel.flights.loading ? 'loading' : ''}>
 
 
-                {dataModel.flights.data.map((flight,iterator)=>(
+                {dataModel.flights.data.map((flight, iterator) => (
                     <tr key={iterator}>
-                        <td>{iterator+dataModel.flights.search.pagination.itemsPerPage*dataModel.flights.search.pagination.page+1}</td>
+                        <td>{iterator + dataModel.flights.search.pagination.itemsPerPage * dataModel.flights.search.pagination.page + 1}</td>
                         <td>{flight.cityFrom}</td>
                         <td>{flight.cityTo}</td>
                         <td>{moment(flight.departureTime).format('LLL')}</td>
