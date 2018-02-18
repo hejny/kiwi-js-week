@@ -7,8 +7,8 @@ export async function searchFlights(search) {
     const response = await superagent
         .get(`${API_URL}/flights`)
         .query({
-            flyFrom: search.from,
-            to: search.to,
+            flyFrom: search.from.id,
+            to: search.to.id,
             dateFrom: moment(search.date).format('DD/MM/YYYY'),
             dateTo: moment(search.date).format('DD/MM/YYYY'),
             offset: search.pagination.page * search.pagination.itemsPerPage,

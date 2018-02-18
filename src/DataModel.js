@@ -1,14 +1,18 @@
 import {observable, computed} from 'mobx';
-import moment from 'moment';
 import {searchFlights} from './apiAdapter';
 
 
 export default class {
 
-
-    @observable search = {
-        from: 'prague_cz',
-        to: 'barcelona_es',
+    /*@observable search = {
+        from: {
+            name: 'Prague',
+            id: 'prague_cz',
+        },
+        to: {
+            name: 'Barcelona',
+            id: 'barcelona_es',
+        },
         date: moment('2018/03/16').toDate(),
 
         pagination: {
@@ -21,7 +25,7 @@ export default class {
         },
 
 
-    };
+    };*/
 
     @observable flights = {
         searched: false,

@@ -8,7 +8,7 @@ export default class InputLocation extends React.Component {
     constructor() {
         super();
         this.state = {
-            selected: undefined
+            selected: undefined//this.props.defaultValue.id
         }
         this.onChange = this.onChange.bind(this);
         this.onSelect = this.onSelect.bind(this);
@@ -29,7 +29,10 @@ export default class InputLocation extends React.Component {
         });
 
 
-        this.props.onChange(location.id);
+        this.props.onChange({
+            id: location.id,
+            name: location.name
+        });
 
         return location.name;
     }
@@ -38,7 +41,7 @@ export default class InputLocation extends React.Component {
         return (
             <div className={'autocompleter'}>
                 <Autocomplete
-                    value={this.props.defaultValue}
+                    value={this.props.defaultValue.name}
                     ref="autocomplete"
                     renderItem={(item) => {
 
