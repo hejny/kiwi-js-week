@@ -35,16 +35,14 @@ export default observer(function ({dataModel}) {
 
                 {pageList.map((page) => (
                     <li
-                        key={page} className={`${dataModel.search.pagination.page === page ? 'current' : ''}`}
+                        key={page}
+                        className={`page ${dataModel.search.pagination.page === page ? 'current' : ''}`}
                         onClick={() => {
                             dataModel.search.pagination.page = page;
                             dataModel.searchFlights();
                         }}
                     >
-
-
                         {page + 1}
-
                     </li>
 
 
