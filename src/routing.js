@@ -2,7 +2,7 @@ import URI from "urijs";
 import moment from "moment";
 
 export function stateToUri(state) {
-    return URI('/')
+    return URI(window.location.toString())//todo better
         .query({
             from: state.from.id,
             to: state.to.id,

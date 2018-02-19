@@ -1,6 +1,7 @@
 import React from 'react';
 import {observe, observable} from 'mobx';
 import ReactDOM from 'react-dom';
+import debounce from 'lodash/debounce';
 import {uriToState, stateToUri} from './routing';
 import App from './components/App';
 import DataModel from './DataModel';
@@ -22,7 +23,7 @@ function restartApp() {
         window.history.pushState({}, window.document.title, stateToUri(dataModel.flights.search));
     }
 
-    observe(dataModel.flights, observer);
+    observe(dataModel.flights, debounce(observer,200));
 
     window.onpopstate = restartApp;
 
