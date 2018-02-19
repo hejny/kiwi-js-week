@@ -22,16 +22,19 @@ export default observer(function ({dataModel}) {
 
             <ul className={'pagination'}>
 
-                {dataModel.search.pagination.page > 0 ?
-                    <li
-                        onClick={() => {
+
+                <li
+                    className={dataModel.search.pagination.page <= 0 ? 'disabled' : ''}
+                    onClick={() => {
+                        if (dataModel.search.pagination.page > 0) {
                             dataModel.search.pagination.page--;
                             dataModel.searchFlights();
-                        }}
-                    >
-                        Previous
-                    </li>
-                    : undefined}
+                        }
+                    }}
+                >
+                    Previous
+                </li>
+
 
                 {pageList.map((page) => (
                     <li
@@ -49,15 +52,18 @@ export default observer(function ({dataModel}) {
                 ))}
 
 
-                {dataModel.search.pagination.page < dataModel.totalPages ? <li
-                        onClick={() => {
+                <li
+                    className={dataModel.search.pagination.page >= dataModel.totalPages ? 'disabled' : ''}
+                    onClick={() => {
+                        if (dataModel.search.pagination.page < dataModel.totalPages) {
                             dataModel.search.pagination.page++;
                             dataModel.searchFlights();
-                        }}
-                    >
-                        Next
-                    </li>
-                    : undefined}
+                        }
+                    }}
+                >
+                    Next
+                </li>
+
             </ul>
 
         </div>

@@ -1,3 +1,6 @@
+ul.pagination {
+    user-select: none;
+}
 
 ul.pagination {
     margin: 30px;
@@ -20,6 +23,11 @@ ul.pagination li {
     margin: 0;
     padding: 5px;
     text-align: center;
+}
+
+ul.pagination li.disabled{
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 ul.pagination li.page{
