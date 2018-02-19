@@ -26,6 +26,9 @@ export default class {
 
 
     };*/
+    constructor(newStateCallback){
+        this.newStateCallback = newStateCallback;
+    }
 
     @observable flights = {
         searched: false,
@@ -39,13 +42,18 @@ export default class {
     }
 
 
-    async searchFlights() {
+    async searchFlights(callNewStateCallback=true) {
         this.flights.loading = true;
+        const search = JSON.parse(JSON.stringify(this.search));//todo better
         const flights = await searchFlights(this.search);
-        this.flights.search = JSON.parse(JSON.stringify(this.search));//todo better
+        this.flights.search = search;
         this.flights.total = flights.total;
         this.flights.data = flights.data;
         this.flights.loading = false;
         this.flights.searched = true;
+
+        if(callNewStateCallback){
+            this.newStateCallback();
+        }
     }
 }

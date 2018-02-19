@@ -9,7 +9,7 @@ export function stateToUri(state) {
             date: moment(state.date).format('YYYY-MM-DD'),
             page: state.pagination.page,
             sortBy: state.pagination.sort.by,
-            sortAsc: state.pagination.sort.asc,
+            sortAsc: state.pagination.sort.asc?'true':'false',
         })
         .toString();
 }
@@ -31,7 +31,7 @@ export function uriToState(uri) {
             itemsPerPage: 5,
             sort: {
                 by: query.sortBy || 'date',
-                asc: query.sortAsc || true == 'true'
+                asc: (query.sortAsc || 'true') == 'true'
             }
         }
     });
