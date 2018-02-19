@@ -7,14 +7,11 @@ import DataModel from './DataModel';
 
 const rootElement = document.getElementById('root');
 
-function restartApp(/*event=null*/) {
+function restartApp() {
 
     const dataModel = new DataModel();
     dataModel.search = observable(uriToState(window.document.location));
-    /*if(event){
-        console.log(event.state);
-        dataModel.flights = observable(event.state);
-    }*/
+
 
     if (dataModel.search.from.id !== '' && dataModel.search.to.id !== '') {
         dataModel.searchFlights();
@@ -22,12 +19,10 @@ function restartApp(/*event=null*/) {
 
 
     function observer() {
-        window.history.pushState(/*dataModel.flights*/{}, window.document.title, stateToUri(dataModel.search));
+        window.history.pushState({}, window.document.title, stateToUri(dataModel.flights.search));
     }
 
-    observe(dataModel.search, observer);
-    observe(dataModel.search.pagination, observer);
-    observe(dataModel.search.pagination.sort, observer);
+    observe(dataModel.flights, observer);
 
     window.onpopstate = restartApp;
 

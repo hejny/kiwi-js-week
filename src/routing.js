@@ -16,7 +16,6 @@ export function stateToUri(state) {
 
 export function uriToState(uri) {
     const query = URI(uri).search(true);
-    console.log(query);
     return ({
         from: {
             name: query.from || 'Prague',
