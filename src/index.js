@@ -8,12 +8,12 @@ import DataModel from './DataModel';
 
 const rootElement = document.getElementById('root');
 
-function restartApp(flights=null) {
+function restartApp(flights = null) {
 
     const dataModel = new DataModel(/*debounce(newStateCallback,200)*/newStateCallback);
     dataModel.search = observable(uriToState(window.document.location));
 
-    if(flights){
+    if (flights) {
         dataModel.flights = observable(flights);
     }
 
@@ -30,7 +30,7 @@ function restartApp(flights=null) {
 
     //observe(dataModel.flights, debounce(observer,200));
 
-    window.onpopstate = ()=>restartApp(dataModel.flights);
+    window.onpopstate = () => restartApp(dataModel.flights);
 
     //rootElement.innerHTML = '';
     ReactDOM.render(<App dataModel={dataModel}/>, rootElement);
