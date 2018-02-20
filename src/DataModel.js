@@ -1,4 +1,5 @@
 import {observable, computed} from 'mobx';
+import cloneDeep from 'clone-deep';
 import {searchFlights} from './apiAdapter';
 
 
@@ -22,7 +23,7 @@ export default class {
 
     async searchFlights(callNewStateCallback = true) {
         this.flights.loading = true;
-        const search = JSON.parse(JSON.stringify(this.search));//todo better
+        const search = cloneDeep(this.search);
         const flights = await searchFlights(this.search);
         this.flights.search = search;
         this.flights.total = flights.total;
