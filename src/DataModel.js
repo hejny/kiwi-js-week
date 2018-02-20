@@ -4,29 +4,7 @@ import {searchFlights} from './apiAdapter';
 
 export default class {
 
-    /*@observable search = {
-        from: {
-            name: 'Prague',
-            id: 'prague_cz',
-        },
-        to: {
-            name: 'Barcelona',
-            id: 'barcelona_es',
-        },
-        date: moment('2018/03/16').toDate(),
-
-        pagination: {
-            page: 0,
-            itemsPerPage: 5,
-            sort: {
-                by: 'date',
-                asc: true
-            }
-        },
-
-
-    };*/
-    constructor(newStateCallback){
+    constructor(newStateCallback) {
         this.newStateCallback = newStateCallback;
     }
 
@@ -42,7 +20,7 @@ export default class {
     }
 
 
-    async searchFlights(callNewStateCallback=true) {
+    async searchFlights(callNewStateCallback = true) {
         this.flights.loading = true;
         const search = JSON.parse(JSON.stringify(this.search));//todo better
         const flights = await searchFlights(this.search);
@@ -52,7 +30,7 @@ export default class {
         this.flights.loading = false;
         this.flights.searched = true;
 
-        if(callNewStateCallback){
+        if (callNewStateCallback) {
             this.newStateCallback();
         }
     }
