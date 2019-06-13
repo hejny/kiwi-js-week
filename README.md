@@ -1,3 +1,6 @@
+# `This app was made on a competition and not maintained for a long time. So expect a very pure code quality.`
+
+
 # Kiwi search
 
 This is simple React project created for [Kiwi.com Modern JS weekend](https://jsweekend.cz/). It is based on [Create React App](https://github.com/facebook/create-react-app).
